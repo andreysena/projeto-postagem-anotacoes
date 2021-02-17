@@ -1,9 +1,55 @@
-<form action="/add" method="POST">
-    <p>Titulo: </p>
-    <input type="text" name="titulo">
-    <p>Conteúdo: </p>
-    <textarea name="conteudo"></textarea><br>
-    <button type="submit">Cadastrar Postagem</button>
-</form>
+
+
+<style type="text/css">
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        color: #004a9e;
+    }
+    .conteiner-form{
+        display: flex;
+        width: 55vw;
+        flex-direction: column;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+    }
+    .titles{
+        font-size: 20px;
+        font-weight: bold;
+        color: #0658b6;
+    }
+    textarea{
+        resize: none;
+        font-size: 15px;
+    }
+    .btn{
+        width: 20vw;
+        font-size: 18px;
+        align-self: center;
+        margin-top: 20px;
+    }
+</style>
+<div class="container">
+    <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1>
+    <div class="conteiner-form">
+       <form action="/add" method="POST" class="form">
+        <p class="titles">Título: </p>
+        <input type="text" name="titulo">
+
+        <p class="titles">Conteúdo: </p>
+        <textarea name="conteudo" rows="15" cols="" placeholder="Digite aqui sua anotação."></textarea>
+
+        <button type="submit" class="btn">Cadastrar Postagem</button>
+    </form> 
+    </div>
+    
+</div>
+
 
 {{!-- GET: Envia os dados pela URL (Baixa segurança) --}}
