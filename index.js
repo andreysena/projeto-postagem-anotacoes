@@ -1,6 +1,9 @@
 //Carregando o módulo express (parte 1 da aula)
 const express = require('express')
 
+//Carregando o módulo express
+const bodyParser = require('body-parser')
+
 //Criando a variável que recebe a instância do express (parte 1 da aula)
 const app = express()
 
@@ -16,6 +19,9 @@ const Sequelize = require('sequelize')
     // TEMPLATE ENGINE
     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
+    // BODY PARSER
+    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.json())
     // CONEXÃO COM O BANCO DE DADOS MYSQL
         const sequelize = new Sequelize('teste', 'root', 'sena1265', {
             host: 'localhost',
@@ -26,7 +32,7 @@ const Sequelize = require('sequelize')
         res.render('formulario')
     ))
     app.post('/add', (req, res) => (
-        res.send("Dados recebidos")
+        res.send("Título: " + req.body.titulo + ". Conteúdo: " + req.body.conteudo)
     ))
 //Iniciando o servidor com o express e indicando a porta (parte 1 da aula)
 app.listen(8081, () => (
