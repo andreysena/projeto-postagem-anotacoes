@@ -1,0 +1,60 @@
+<style type="text/css">
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .aToForm{
+        width: 180px;
+        align-self: flex-end;
+    }
+    .btnToForm{
+        position: absolute;
+        margin-top: 4%;
+        margin-right: 1%;
+    }
+    .containerList{
+        display: flex;
+        margin-top: 3%;
+        align-items: center;
+        flex-direction: column;
+    }
+    h1{
+        color: #004a9e;
+        text-align: center;
+    }
+    .listBody{
+        width: 80vw;
+        background-color: #0b83d3;
+        padding: 2%;
+        margin-top: 2%;
+        border-radius: 15px;
+    }
+    .annotationCard{
+        background-color: gainsboro;
+        padding: 1%;
+        margin-bottom: 2%;
+        border-radius: 15px;
+    }
+</style>
+
+<div class="container"> 
+    <a href="/cad" class="aToForm"><button class="btnToForm">Adicionar nova anotação</button></a>
+    <div class="containerList">
+        <h1>Lista de Anotações</h1>
+        <div class="listBody">
+            
+            {{#each posts}}
+                <div class="annotationCard">
+                    <h2>{{dataValues.titulo}}</h2>
+                    <p>{{dataValues.conteudo}}</p>
+                    <a href="/deletar/{{dataValues.id}}"><button>Deletar anotação</button></a>
+                </div>
+            {{/each}}    
+        </div>
+    </div>    
+</div>
+
+
+
