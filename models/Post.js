@@ -6,6 +6,10 @@ const Post = db.sequelize.define('postagens', {
     },
     conteudo: {
         type: db.Sequelize.TEXT
+    },
+    status: {
+        type: db.Sequelize.STRING,
+        defaultValue: "A"
     }
 })
 

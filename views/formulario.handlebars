@@ -1,5 +1,3 @@
-
-
 <style type="text/css">
     a{
         position: absolute;
@@ -35,7 +33,12 @@
         resize: none;
         font-size: 15px;
     }
-    .btnSubmit{
+    .container-buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .btn{
         width: 20vw;
         font-size: 18px;
         align-self: center;
@@ -43,21 +46,45 @@
     }
 </style>
 
-
 <div>
     <a href="/"><button class="btnComeBack">Voltar para lista de Anotações</button></a>
     <div class="container">
-        <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1>
+        <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1> 
         <div class="conteiner-form">
-        <form action="/add" method="POST" class="form">
-            <p class="titles">Título: </p>
-            <input type="text" name="titulo">
+            {{#if annotation}}
+                <form action="/update/{{annotation.dataValues.id}}" method="POST" class="form">
+            {{else}}
+                <form action="/add" method="POST" class="form">
+            {{/if}}
+                <p class="titles">Título: </p>
+                <input type="text" name="titulo" value="{{annotation.dataValues.titulo}}">
 
-            <p class="titles">Conteúdo: </p>
-            <textarea name="conteudo" rows="15" cols="" placeholder="Digite aqui sua anotação."></textarea>
+                <p class="titles">Conteúdo: </p>
+                <textarea 
+                    name="conteudo" 
+                    rows="15" cols="" 
+                    placeholder="Digite aqui sua anotação."
+                >{{annotation.dataValues.conteudo}}</textarea>
+                <div class="container-buttons">
+                    
+                    {{#if annotation}}
+                    
+                        <button 
+                            type="submit" 
+                            class="btn btnEdit"
+                        >Salvar Edições</button>
+                        
 
-            <button type="submit" class="btnSubmit">Adicionar Anotação</button>
-        </form> 
+                    {{else}}
+                         <button 
+                            type="submit" 
+                            class="btn btnAdd"  
+                        >Adicionar Anotação</button>
+                    {{/if}}
+                    
+                </div>
+                
+            </form> 
         </div>
         
     </div>

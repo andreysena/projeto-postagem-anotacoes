@@ -37,6 +37,14 @@
         margin-bottom: 2%;
         border-radius: 15px;
     }
+    .container-buttons{
+        display: flex;
+        flex-direction: row;
+    }
+    .container-btn-right{
+        margin-left: 2%;
+    }
+    
 </style>
 
 <div class="container"> 
@@ -44,12 +52,22 @@
     <div class="containerList">
         <h1>Lista de Anotações</h1>
         <div class="listBody">
-            
             {{#each posts}}
                 <div class="annotationCard">
                     <h2>{{dataValues.titulo}}</h2>
                     <p>{{dataValues.conteudo}}</p>
-                    <a href="/deletar/{{dataValues.id}}"><button>Deletar anotação</button></a>
+                    <div class="container-buttons">
+                        <div class="container-btn-left">
+                            <a href="/deletar/{{dataValues.id}}">
+                                <button>Deletar anotação</button>
+                            </a>
+                        </div>
+                        <div class="container-btn-right">
+                            <a href="/cad/{{dataValues.id}}">
+                                <button>Editar anotação</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             {{/each}}    
         </div>

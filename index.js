@@ -23,15 +23,23 @@ const Post = require('./models/Post')
 
 // ROTAS
     app.get('/', (req, res) => (
-        Post.findAll({order: [['id', 'DESC']]}).then((posts) => (
+        Post.findAll({order: [['id', 'DESC']], where: {'status': 'A'}}).then((posts) => (
            res.render('home', {posts: posts}) 
         ))
         
     ))
 
-    app.get('/cad', (req, res) => (
-        res.render('formulario')
-    ))
+    app.get('/cad/:id?', (req, res) => {
+        let id = req.params.id
+        if(id){
+            Post.findByPk(req.params.id).then((annotation) => (
+                res.render('formulario', {annotation: annotation})
+            ))
+        }else{
+            res.render('formulario')
+        }
+        
+    })
 
     app.post('/add', (req, res) => (
         Post.create({
@@ -44,14 +52,31 @@ const Post = require('./models/Post')
         })
     ))
     
-    app.get("/deletar/:id", (req, res) => (
-        Post.destroy({where: {'id': req.params.id}})
-        .then(() => {
+    app.get('/deletar/:id', (req, res) => (
+        Post.update(
+            {
+                status: "I"
+            },
+            {returning: true, where: {id: req.params.id}}
+        ).then(() => (
             res.redirect('/')
-        }).catch( (erro) => (
-            res.send("Essa postagem não existe!")
+        )).catch((erro) => (
+            console.log("Ocorreu um erro ao tentar excluir: " + erro)
         ))
+        
     ))
+
+    app.post('/update/:id', (req, res) => {
+        Post.update(
+            {
+                titulo: req.body.titulo,
+                conteudo: req.body.conteudo
+            },
+            {returning: true, where: {id: req.params.id}}
+        ).then(()=>{
+            res.redirect('/')
+        })
+    })
 
 //Iniciando o servidor com o express e indicando a porta (parte 1 da aula)
 app.listen(8081, () => (
