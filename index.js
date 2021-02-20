@@ -12,6 +12,7 @@ const handlebars = require('express-handlebars')
 
 //Carregando o arquivo com as informações da tabela de postagens
 const Post = require('./models/Post')
+const { sequelize } = require('./models/db')
 
 // CONFIG
     // TEMPLATE ENGINE
@@ -23,25 +24,53 @@ const Post = require('./models/Post')
 
 // ROTAS
     app.get('/', (req, res) => (
-        Post.findAll({order: [['id', 'DESC']], where: {'status': 'A'}}).then((posts) => (
-           res.render('home', {posts: posts}) 
-        ))
+        Post.findAll(
+            {
+                attributes: [
+                    'id',
+                    'titulo',
+                    'conteudo',
+                    [sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('createdAt'), '%d/%m/%y %H:%i'), 'createdAt']
+                ],
+                order: [['id', 'DESC']],
+                where: {'status': 'A'}
+
+            }).then((activeNotes) => {
+           res.render('home', {activeNotes: activeNotes}) 
+        })
         
     ))
+
+    app.get('/lixeira', (req, res) => {
+        Post.findAll(
+            {
+                attributes: [
+                    'id',
+                    'titulo',
+                    'conteudo',
+                    [sequelize.Sequelize.fn('date_format', sequelize.Sequelize.col('updatedAt'), '%d/%m/%y %H:%i'), 'updatedAt']
+                ],
+                order: [['id', 'DESC']], 
+                where: {'status': 'I'}
+            }
+        ).then((inactiveNotes) => {
+            res.render('lixeira', {inactiveNotes: inactiveNotes}) 
+         })
+    })
 
     app.get('/cad/:id?', (req, res) => {
         let id = req.params.id
         if(id){
-            Post.findByPk(req.params.id).then((annotation) => (
-                res.render('formulario', {annotation: annotation})
-            ))
+            Post.findByPk(req.params.id).then((notes) => {
+                res.render('formulario', {notes: notes})
+            })
         }else{
             res.render('formulario')
         }
         
     })
 
-    app.post('/add', (req, res) => (
+    app.post('/add', (req, res) => {
         Post.create({
             titulo: req.body.titulo,
             conteudo: req.body.conteudo
@@ -50,9 +79,9 @@ const Post = require('./models/Post')
         }).catch( (erro) => {
             res.send("Houve um erro: " + erro)
         })
-    ))
+    })
     
-    app.get('/deletar/:id', (req, res) => (
+    app.get('/delete/:id', (req, res) => {
         Post.update(
             {
                 status: "I"
@@ -64,7 +93,7 @@ const Post = require('./models/Post')
             console.log("Ocorreu um erro ao tentar excluir: " + erro)
         ))
         
-    ))
+    })
 
     app.post('/update/:id', (req, res) => {
         Post.update(
@@ -75,6 +104,19 @@ const Post = require('./models/Post')
             {returning: true, where: {id: req.params.id}}
         ).then(()=>{
             res.redirect('/')
+        })
+    })
+
+    app.post('/restore/:id', (req, res) => {
+        Post.update(
+            {
+                status: "A"
+            },
+            {returning: true, where: {id: req.params.id}}
+        ).then(() => {
+            res.redirect("/lixeira")
+        }).catch((erro) => {
+            console.log("Ocorreu um erro ao tentar restaurar a anotação: " + erro)
         })
     })
 

@@ -3,8 +3,13 @@
         position: absolute;
         margin-top: 1.4%;
     }
+    .container-btnComeBack{
+        background-color: #00633d;
+        border-radius: 10px;
+        padding: 0.4%;
+    }
     .btnComeBack{
-        width: 14vw;
+        width: 180px;
     }
     .container{
         display: flex;
@@ -32,6 +37,8 @@
     textarea{
         resize: none;
         font-size: 15px;
+        border-radius: 10px;
+        padding: 1%;
     }
     .container-buttons{
         display: flex;
@@ -46,28 +53,28 @@
     }
 </style>
 
-<div>
-    <a href="/"><button class="btnComeBack">Voltar para lista de Anotações</button></a>
+<main>
+    <a class="container-btnComeBack" href="/"><button class="btnComeBack">Voltar para Lista de Anotações</button></a>
     <div class="container">
         <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1> 
         <div class="conteiner-form">
-            {{#if annotation}}
-                <form action="/update/{{annotation.dataValues.id}}" method="POST" class="form">
+            {{#if notes}}
+                <form action="/update/{{notes.dataValues.id}}" method="POST" class="form">
             {{else}}
                 <form action="/add" method="POST" class="form">
             {{/if}}
                 <p class="titles">Título: </p>
-                <input type="text" name="titulo" value="{{annotation.dataValues.titulo}}">
+                <input type="text" name="titulo" value="{{notes.dataValues.titulo}}">
 
                 <p class="titles">Conteúdo: </p>
                 <textarea 
                     name="conteudo" 
                     rows="15" cols="" 
                     placeholder="Digite aqui sua anotação."
-                >{{annotation.dataValues.conteudo}}</textarea>
+                >{{notes.dataValues.conteudo}}</textarea>
                 <div class="container-buttons">
                     
-                    {{#if annotation}}
+                    {{#if notes}}
                     
                         <button 
                             type="submit" 
@@ -81,13 +88,10 @@
                             class="btn btnAdd"  
                         >Adicionar Anotação</button>
                     {{/if}}
-                    
                 </div>
-                
             </form> 
         </div>
-        
     </div>
-</div>   
+</main>   
 
 {{!-- GET: Envia os dados pela URL (Baixa segurança) --}}

@@ -13,6 +13,11 @@ const Post = db.sequelize.define('postagens', {
     }
 })
 
-// Post.sync({force: true})
+/* Se o arquivo for executado com a linha abaixo não comentada, haverá uma verificação
+da existência das tabelas definidas nas linhas acima. Se as tabelas já existirem,
+serão excluídas e recriadas. Sendo assim, a linha abaixo deve ser comentada após a 
+primeira execução do arquivo para não haver a perda dos registros das tabelas. */
+
+//Post.sync({force: true})
 
 module.exports = Post
