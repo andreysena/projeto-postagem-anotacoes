@@ -25,7 +25,7 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 <br/>
 
 ### Exclusão de uma anotação (Delete) 
-![Delete](./Delete.gif)
+![Delete](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Delete.gif)
 
 <br/>
 
