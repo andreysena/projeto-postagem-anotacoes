@@ -57,7 +57,11 @@
 <main>
     <a class="container-btnComeBack" href="/"><button class="btnComeBack">Voltar para Lista de Anotações</button></a>
     <div class="container">
-        <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1> 
+        {{#if notes}}
+            <h1>EDITE AQUI SUA ANOTAÇÃO:</h1>
+        {{else}}
+            <h1>ADICIONE AQUI SUA ANOTAÇÃO:</h1>
+        {{/if}}
         <div class="conteiner-form">
             {{#if notes}}
                 <form action="/update/{{notes.dataValues.id}}" method="POST" class="form">
