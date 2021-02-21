@@ -10,17 +10,17 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 <br/>
 
 ### Criação de uma anotação (Create) 
-![Create](./Create.gif)
+![Create](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/Create.gif)
 
 <br/>
 
 ### Visualização das anotações (Read) 
-![Read](./Read.gif)
+![Read](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/Read.gif)
 
 <br/>
 
 ### Atualização de uma anotação (Update) 
-![Update](./Update.gif)
+![Update](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/Update.gif)
 
 <br/>
 
@@ -30,4 +30,4 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 <br/>
 
 ### Restauração de uma anotação (Restore) 
-![Delete](./Restore.gif)
+![Restore](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/Restore.gif)
