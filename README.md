@@ -6,9 +6,6 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 ***
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/andreysena/projeto-postagem-anotacoes">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/andreysena/projeto-postagem-anotacoes">
 
   <a href="https://github.com/andreysena/projeto-postagem-anotacoescommits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/andreysena/projeto-postagem-anotacoes">
