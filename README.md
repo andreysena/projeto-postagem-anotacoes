@@ -1,44 +1,24 @@
 # Projeto de Postagens de Anotações
 Projeto de criação de um app para postagem de anotações utilizando Node.JS e Express.
 
-***
-
-<br/>
-
-## CRUD do app
-
-<br/>
-
-### Criação de uma anotação (Create) 
-![Create](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Create.gif)
-<img src="./media/Create.gif">
-<br/>
-
-### Visualização das anotações (Read) 
-![Read](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Read.gif)
-<img src="./media/Read.gif">
-<br/>
-
-### Atualização de uma anotação (Update) 
-![Update](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Update.gif)
-<img src="./media/Create.gif">
-<br/>
-
-### Exclusão de uma anotação (Delete) 
-![Delete](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Delete.gif)
-<img src="./media/Delete.gif">
-
-<br/>
 <br/>
 
 ***
 
-### Restauração de uma anotação (Restore) 
-![Restore](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/Restore.gif)
-<img src="./media/Restore.gif">
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/andreysena/projeto-postagem-anotacoes">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/andreysena/projeto-postagem-anotacoes">
+
+  <a href="https://github.com/andreysena/projeto-postagem-anotacoescommits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/andreysena/projeto-postagem-anotacoes">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+
 ***
 
-<br/>
 <br/>
 
 ## Requesitos para rodar o app
@@ -71,7 +51,64 @@ const sequelize = new Sequelize('NomeDoBancoDeDados', 'root', 'SenhaDeUsario', {
 
 <br/>
 
-3. Também na pasta `models` abra o arquivo `Post.js` e descomente a linha abaixo e execute o comando `node Post.js`:
+3. Também na pasta `models` abra o arquivo `Post.js` e descomente a linha abaixo:
+<br/><br/>
+`//Post.sync({force: true})`
+<br/><br/>
+E então execute o seguinte comando: 
+<br/><br/>
+`node Post.js`
+<br/><br/>
+Depois de executar o comando a linha deve ser comentada novamente para a tabela não seja recriada sempre que rodar o projeto.
+
+<br>
+
+## Rodando o projeto
+
+Na raiz do projeto rode o seguinte comando:
 ```
-//Post.sync({force: true})
+node index.js
 ```
+Na barra de endereço do navegaor acesse o localhost na porta 8081:
+
+![localhost](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/img/barra-de-endereco.png)
+<img src="./media/img/barra-de-endereco.png">
+
+<br/>
+
+Tudo pronto!
+
+***
+
+<br/>
+
+## CRUD do app
+
+<br/>
+
+### Criação de uma anotação (Create) 
+![Create](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Create.gif)
+<img src="./media/gifs/Create.gif">
+<br/>
+
+### Visualização das anotações (Read) 
+![Read](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Read.gif)
+<img src="./media/gifs/Read.gif">
+<br/>
+
+### Atualização de uma anotação (Update) 
+![Update](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Update.gif)
+<img src="./media/gifs/Create.gif">
+<br/>
+
+### Exclusão de uma anotação (Delete) 
+![Delete](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Delete.gif)
+<img src="./media/gifs/Delete.gif">
+
+<br/><br/>
+
+***
+
+### Restauração de uma anotação (Restore) 
+![Restore](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Restore.gif)
+<img src="./media/gifs/Restore.gif">
