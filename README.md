@@ -21,7 +21,7 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 
 <br/>
 
-## Requesitos para rodar o app
+## Requisitos para rodar o app
 
 * Node
 * MySQL
@@ -72,7 +72,6 @@ node index.js
 Na barra de endereço do navegaor acesse o localhost na porta 8081:
 
 ![localhost](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/img/barra-de-endereco.png)
-<img src="./media/img/barra-de-endereco.png">
 
 <br/>
 
@@ -88,22 +87,21 @@ Tudo pronto!
 
 ### Criação de uma anotação (Create) 
 ![Create](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Create.gif)
-<img src="./media/gifs/Create.gif">
+
 <br/>
 
 ### Visualização das anotações (Read) 
 ![Read](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Read.gif)
-<img src="./media/gifs/Read.gif">
+
 <br/>
 
 ### Atualização de uma anotação (Update) 
 ![Update](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Update.gif)
-<img src="./media/gifs/Create.gif">
+
 <br/>
 
 ### Exclusão de uma anotação (Delete) 
 ![Delete](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Delete.gif)
-<img src="./media/gifs/Delete.gif">
 
 <br/><br/>
 
@@ -111,4 +109,3 @@ Tudo pronto!
 
 ### Restauração de uma anotação (Restore) 
 ![Restore](https://github.com/andreysena/projeto-postagem-anotacoes/blob/main/media/gifs/Restore.gif)
-<img src="./media/gifs/Restore.gif">
