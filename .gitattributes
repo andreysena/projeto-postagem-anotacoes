@@ -1,2 +1,1 @@
-*.js linguist-detectable=true
-*.handlebars linguist-detectable=true
+views/* linguist-vendored
