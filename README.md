@@ -20,7 +20,7 @@ Projeto de criação de um app para postagem de anotações utilizando Node.JS e
 
 ## Requisitos para rodar o app
 
-* Node
+* Node.js
 * MySQL
 
 <br/>
