@@ -33,7 +33,7 @@ npm install
 
 <br/>
 
-2. Crie um banco de dados MySQL e então na raiz do projeto procure a pasta ```models``` e dentro dela o arquivo ```db.js```. Nele você deve configurar as informações necessárias para estabelecer a conexão com o banco de dados, e essas são: nome do banco de dados, nome de usuário (por padrão o usuário root) e senha de usuário. <br/> Também é possível definir o fuso horário através do ```dialectOptions```, por padrão está configurado como Horário Padrão de Brasília (GTM-3).
+2. Crie um banco de dados MySQL e então na raiz do projeto procure a pasta ```models``` e dentro dela o arquivo ```db.js```. Nele você deve configurar as informações necessárias para estabelecer a conexão com o banco de dados, e essas são: nome do banco de dados, nome de usuário (por padrão o usuário root) e senha de usuário. <br/> Também é possível definir o fuso horário através do ```dialectOptions```, no meu caso está configurado como Horário Padrão de Brasília (GMT-3).
 
 ```
 const sequelize = new Sequelize('NomeDoBancoDeDados', 'root', 'SenhaDeUsario', {
